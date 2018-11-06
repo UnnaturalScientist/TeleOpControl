@@ -1,5 +1,4 @@
-#Xbox JOY in ROS (python)  
-  
+#Xbox JOY in ROS (python)    
   
   #!/usr/bin/env python
     #rospy is a pure Python client library for ROS.
@@ -9,6 +8,7 @@
     from sensor_msgs.msg import Joy
 
     #ROS node to allow an XBox controller to guide a turtlebot in a sim 
+
 
 #STEP 1:DISABLING AND BLACK LISTING THE KERNEL DRIVER
 
@@ -23,6 +23,7 @@
     sudo su
     echo "blacklist xpad" > /etc/modprode.d/blacklist.conf
     
+    
 #STEP 2: INSTALLING XBOXDRV
 
     #This is an alternative to installing the package from Ubuntu Repositories
@@ -32,6 +33,7 @@
     sudo add-apt-repository ppa:grumbel/ppa
     sudo apt-get update
     sudo apt-get install xboxdrv
+    
     
 #STEP 3: USING XBOXDRV
 
@@ -45,6 +47,8 @@
     ls - l /dev/input
 
 #............CODE START............
+
+
 #Check for compatibility issues in MELODIC
 
     # Receives joystick messages (subscribed to Joy topic)
@@ -52,7 +56,15 @@
     # axis 1 aka left stick vertical controls linear speed
     # axis 0 aka left stick horizonal controls angular speed
     
-    #
+    #RAW JOY MESSAGE DEFINITION
+    
+    Raw Message Definition
+    
+    # Reports the state of a joysticks axes and buttons.
+    #Header header           = timestamp in the header is the time the data is received from the joystick
+    #float32[] axes          = the axes measurements from a joystick
+    #int32[] buttons         = the buttons measurements from a joystick 
+
     def callback(data):
         twist = Twist()
         #Joystick Input: These are the axis measurements
@@ -76,6 +88,7 @@
 
 
 #............CODE END............    
+ 
  
 #ACTUALLY RUNNING THE TEST
 
