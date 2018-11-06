@@ -22,8 +22,10 @@
     
 #STEP 2: INSTALLING XBOXDRV
 
-    #
+    #This is an alternative to installing the package from Ubuntu Repositories
+    #Developoer repositories ensure the latest version
     
+    #Check repository version
     sudo add-apt-repository ppa:grumbel/ppa
     sudo apt-get update
     sudo apt-get install xboxdrv
@@ -33,8 +35,14 @@
     xboxdrv #might need root access
     #Root access = https://answers.ros.org/question/165246/launch-node-with-root-permissions/
 
-#............CODE START............
+    #Silent stops the constant flow of information being sent from input commands
+    --silent
+    
+    #Check the joystick input entry
+    ls - l /dev/input
 
+#............CODE START............
+#Check for compatibility issues in MELODIC
 
     # Receives joystick messages (subscribed to Joy topic)
     # then converts the joysick inputs into Twist commands
