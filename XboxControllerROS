@@ -1,4 +1,7 @@
-    #!/usr/bin/env python
+#Xbox JOY in ROS (python)  
+  
+  
+  #!/usr/bin/env python
     #rospy is a pure Python client library for ROS.
     import rospy
     #Twist is for "Twist-based robots in ROS, which use a standard joystick (JOY)
